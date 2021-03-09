@@ -35,7 +35,7 @@ class Client {
      * @param url The URL to perform the request to. Note that this is relative to the base endpoint.
      * @returns The deserialized body or undefined on unsuccessful responses.
      */
-    async post<T>(url: string, body?: any): Promise<T | undefined> {
+    async post<T>(url: string, body?: unknown): Promise<T | undefined> {
         return this.successOrUndefined(
             await this.makeRequest(url, "POST", body)
         );
@@ -47,7 +47,7 @@ class Client {
      * @param url The URL to perform the request to. Note that this is relative to the base endpoint.
      * @returns The deserialized body or undefined on unsuccessful responses.
      */
-    async patch<T>(url: string, body?: any): Promise<T | undefined> {
+    async patch<T>(url: string, body?: unknown): Promise<T | undefined> {
         return this.successOrUndefined(
             await this.makeRequest(url, "PATCH", body)
         );
@@ -59,7 +59,7 @@ class Client {
      * @param url The URL to perform the request to. Note that this is relative to the base endpoint.
      * @returns If the operation was successful.
      */
-    async del<T>(url: string): Promise<boolean> {
+    async del(url: string): Promise<boolean> {
         const response = await this.makeRequest(url, "DELETE");
         return response.status === 200;
     }
@@ -82,10 +82,10 @@ class Client {
      *
      * @returns The awaited response.
      */
-    async makeRequest<T>(
+    async makeRequest(
         url: string,
         method: RequestMethod,
-        body?: any
+        body?: unknown
     ): Promise<Response> {
         const headers: { [key: string]: string } = {
             "Content-Type": "application/json",

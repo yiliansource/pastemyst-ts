@@ -12,6 +12,10 @@ type PasteCreateFields = Partial<
     pasties: Array<PastyCreateFields>;
 };
 
+/**
+ * Represents the collection of fields that can be passed when creating a new pasty,
+ * which is a component of a larger paste.
+ */
 type PastyCreateFields = Omit<Pasty, "_id">;
 
 /**

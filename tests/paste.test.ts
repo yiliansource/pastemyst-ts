@@ -30,7 +30,7 @@ describe("Paste", function () {
         const paste = await pastes.getPaste("io1m982a");
 
         assert.isDefined(paste);
-        assert.strictEqual(paste!.title, "[PasteMyst-TS] API Get Test");
+        assert.strictEqual(paste?.title, "[PasteMyst-TS] API Get Test");
     });
 
     it("creates pastes", async function () {
@@ -43,9 +43,11 @@ describe("Paste", function () {
         });
 
         assert.isDefined(paste);
-        assert.strictEqual(paste!.title, title);
+        if (paste) {
+            assert.strictEqual(paste.title, title);
 
-        createdPastes.push(paste!);
+            createdPastes.push(paste);
+        }
     });
 
     it("creates private pastes", async function () {
@@ -59,10 +61,12 @@ describe("Paste", function () {
         });
 
         assert.isDefined(paste);
-        assert.strictEqual(paste!.title, title);
-        assert.isTrue(paste!.isPrivate);
+        if (paste) {
+            assert.strictEqual(paste.title, title);
+            assert.isTrue(paste.isPrivate);
 
-        createdPastes.push(paste!);
+            createdPastes.push(paste);
+        }
     });
 
     it("deletes pastes", async function () {
@@ -71,11 +75,12 @@ describe("Paste", function () {
         });
 
         assert.isDefined(paste);
+        if (paste) {
+            await pastes.deletePaste(paste._id);
+            const deletedPaste = await pastes.getPaste(paste._id);
 
-        await pastes.deletePaste(paste!._id);
-        const deletedPaste = await pastes.getPaste(paste!._id);
-
-        assert.isUndefined(deletedPaste);
+            assert.isUndefined(deletedPaste);
+        }
     });
 
     it("edits pastes", async function () {
@@ -84,15 +89,18 @@ describe("Paste", function () {
         });
 
         assert.isDefined(paste);
+        if (paste) {
+            const desiredTitle = "[PasteMyst-TS] API Edit Test";
+            const editedPaste = await pastes.editPaste(paste._id, {
+                title: desiredTitle,
+            });
 
-        const desiredTitle = "[PasteMyst-TS] API Edit Test";
-        const editedPaste = await pastes.editPaste(paste!._id, {
-            title: desiredTitle,
-        });
+            assert.isDefined(editedPaste);
+            if (editedPaste) {
+                assert.strictEqual(editedPaste.title, desiredTitle);
 
-        assert.isDefined(editedPaste);
-        assert.strictEqual(editedPaste!.title, desiredTitle);
-
-        createdPastes.push(editedPaste!);
+                createdPastes.push(editedPaste);
+            }
+        }
     });
 });

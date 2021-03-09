@@ -1,9 +1,7 @@
+import "dotenv/config";
 import chalk from "chalk";
-import dotenv from "dotenv";
 
 import * as pastemyst from "../src";
-
-dotenv.config();
 
 const apiToken = process.env.API_TOKEN;
 if (apiToken) {
