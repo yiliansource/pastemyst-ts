@@ -3,3 +3,6 @@ lib
 
 # ignore modules
 node_modules
+
+# ignore environment secrets
+.env

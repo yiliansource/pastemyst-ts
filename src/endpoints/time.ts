@@ -19,10 +19,10 @@ export class TimeEndpoint {
         createdAt: number,
         expiresIn: ExpiresIn
     ): Promise<number> {
-        const result = await client.get<number>(
+        const response = await client.get<{ result: number }>(
             `/time/expiresInToUnixTime?createdAt=${createdAt}&expiresIn=${expiresIn}`
         );
 
-        return result || 0;
+        return response ? response.result : 0;
     }
 }

@@ -3,11 +3,9 @@
         "target": "ES5",
         "lib": ["ES6"],
         "module": "CommonJS",
-        "moduleResolution": "Node",
         "strict": true,
         "esModuleInterop": true,
-        "skipLibCheck": true,
-        "outDir": "lib"
+        "skipLibCheck": true
     },
-    "include": ["src/**/*.ts"]
+    "include": ["./**/*.ts"]
 }

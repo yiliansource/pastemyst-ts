@@ -1,4 +1,5 @@
 import { ExpiresIn } from "./expiresIn";
+import { Pasty } from "./pasty";
 
 /**
  * Represents a paste object on the site.
@@ -54,7 +55,7 @@ export interface Paste {
     /**
      * The pasties contained within the paste. This array can not be empty.
      */
-    pasties: Array<Pastie>;
+    pasties: Array<Pasty>;
     /**
      * The edits that were made to the paste.
      */

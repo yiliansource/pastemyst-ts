@@ -68,10 +68,11 @@ class Client {
      * Returns the deserialized response body if the request was successful, undefined if not.
      */
     async successOrUndefined<T>(response: Response): Promise<T | undefined> {
-        return response.status !== 200
+        return response.status === 200
             ? ((await response.json()) as T)
             : undefined;
     }
+
     /**
      * Performs a request to the specified URL.
      *

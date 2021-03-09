@@ -1,5 +1,6 @@
 import { client } from "../client";
 import { Paste } from "../types/paste";
+import { Pasty } from "../types/pasty";
 
 /**
  * Represents the collection of fields that can be passed when creating a new paste.
@@ -7,8 +8,11 @@ import { Paste } from "../types/paste";
  */
 type PasteCreateFields = Partial<
     Pick<Paste, "title" | "expiresIn" | "isPrivate" | "isPublic" | "tags">
-> &
-    Required<Pick<Paste, "pasties">>;
+> & {
+    pasties: Array<PastyCreateFields>;
+};
+
+type PastyCreateFields = Omit<Pasty, "_id">;
 
 /**
  * Represents the collection of fields that can be modified when editing an existing paste.
