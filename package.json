@@ -1,15 +1,25 @@
 {
     "name": "pastemyst-ts",
-    "version": "1.0.0",
-    "description": "An API wrapper for paste.myst.rs, written in TypeScript.",
+    "author": "Ian Hornik",
     "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "version": "0.0.0",
+    "description": "An API wrapper for paste.myst.rs, written in TypeScript.",
     "scripts": {
         "build": "tsc",
         "lint": "npx eslint . --ext .ts",
-        "test": "mocha -r ts-node/register 'tests/**/*.ts'"
+        "test": "mocha -r ts-node/register 'tests/**/*.ts'",
+        "prepare": "npm run build"
     },
-    "author": "Ian Hornik",
+    "files": [
+        "lib/**/*"
+    ],
     "license": "MIT",
+    "keywords": [
+        "pastemyst",
+        "api",
+        "wrapper"
+    ],
     "dependencies": {
         "node-fetch": "^2.6.1"
     },
