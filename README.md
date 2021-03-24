@@ -1,5 +1,9 @@
 # PasteMyst-TS
 
+![npm](https://img.shields.io/npm/v/pastemyst-ts)
+![NPM](https://img.shields.io/npm/l/pastemyst-ts)
+![npm](https://img.shields.io/npm/dt/pastemyst-ts)
+
 An API wrapper for [paste.myst.rs](https://paste.myst.rs/), written in TypeScript.
 
 All aspects of the v2 endpoint are currently implemented.
@@ -19,8 +23,10 @@ The endpoints are grouped inside the exports of the library. For example, inform
 ```ts
 import * as pastemyst from "pastemyst-ts";
 
-// optional; some endpoints require authorization through your personal
-//   api token, retrieved through your profile settings.
+/*
+    optional; some endpoints require authorization through your personal
+    pastemyst api token, retrieved through your profile settings.
+*/
 pastemyst.authorize("myApiToken");
 
 const myPaste = await pastemyst.pastes.getPaste("myPasteId");
