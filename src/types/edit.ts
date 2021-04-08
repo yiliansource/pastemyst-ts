@@ -1,5 +1,3 @@
-import { EditType } from "./editType";
-
 /**
  * Represents an edit to a paste object.
  *

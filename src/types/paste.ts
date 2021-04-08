@@ -1,3 +1,4 @@
+import { Edit } from "./edit";
 import { ExpiresIn } from "./expiresIn";
 import { Pasty } from "./pasty";
 
