@@ -3,7 +3,7 @@
     "author": "Ian Hornik",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "An API wrapper for paste.myst.rs, written in TypeScript.",
     "scripts": {
         "build": "tsc",
