@@ -69,8 +69,8 @@ export class PasteEndpoint {
      * you need to authorize the request using your personal API token.
      *
      * Additionally, when modifying the pasties of a post, note that you need to provide
-     * all of the original pasties, only making the changes you want. It is not possible
-     * to update a single pasty without providing all of the original pasties.
+     * all of the original pasties (with their IDs!), only making the changes you want. It is
+     * not possible to update a single pasty without providing all of the original pasties.
      *
      * @param id The ID of the paste to edit.
      * @param data The data to modify in the paste.

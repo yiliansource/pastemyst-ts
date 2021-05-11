@@ -4,21 +4,40 @@ import { data } from "./pastemyst";
 
 describe("Data", function () {
     it("gets languages by name", async function () {
-        assert.isUndefined(await data.getLanguageByName("does not exist"));
-        assert.isUndefined(await data.getLanguageByName("ksgheisghselfjd"));
+        const unknownNames: string[] = ["does not exist", "ksgheisghselfjd"];
+        const knownNames: [string, string][] = [
+            ["typescript", "TypeScript"],
+            ["c#", "C#"],
+        ];
 
-        assert.strictEqual(
-            (await data.getLanguageByName("typescript"))?.name,
-            "TypeScript"
-        );
+        for (const unknownLang of unknownNames) {
+            assert.isUndefined(await data.getLanguageByName(unknownLang));
+        }
+
+        for (const knownLang of knownNames) {
+            assert.strictEqual(
+                (await data.getLanguageByName(knownLang[0]))?.name,
+                knownLang[1]
+            );
+        }
     });
 
     it("gets languages by their extension", async function () {
-        assert.isUndefined(await data.getLanguageByExtension("fake-extension"));
+        const unknownExtensions: string[] = ["fake-extension", "wdajdkfwkjf"];
+        const knownExtensions: [string, string][] = [
+            ["ts", "TypeScript"],
+            ["cs", "C#"],
+        ];
 
-        assert.strictEqual(
-            (await data.getLanguageByExtension("ts"))?.name,
-            "TypeScript"
-        );
+        for (const unknownExt of unknownExtensions) {
+            assert.isUndefined(await data.getLanguageByExtension(unknownExt));
+        }
+
+        for (const knownExt of knownExtensions) {
+            assert.strictEqual(
+                (await data.getLanguageByExtension(knownExt[0]))?.name,
+                knownExt[1]
+            );
+        }
     });
 });

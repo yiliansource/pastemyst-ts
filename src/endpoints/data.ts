@@ -14,7 +14,7 @@ export class DataEndpoint {
      * @returns The language definition or undefined if no matching language was found.
      */
     async getLanguageByName(name: string): Promise<Language | undefined> {
-        return client.get(`/data/language?name=${name}`);
+        return client.get(`/data/language?name=${escape(name)}`);
     }
 
     /**
@@ -24,6 +24,6 @@ export class DataEndpoint {
      * @returns The language definition or undefined if no matching language was found.
      */
     async getLanguageByExtension(ext: string): Promise<Language | undefined> {
-        return client.get(`/data/languageExt?extension=${ext}`);
+        return client.get(`/data/languageExt?extension=${escape(ext)}`);
     }
 }
