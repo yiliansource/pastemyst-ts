@@ -15,6 +15,13 @@ class Client {
     token?: string;
 
     /**
+     * Checks if the user has provided a method of authorization.
+     */
+    isAuthorized(): boolean {
+        return typeof this.token !== "undefined";
+    }
+
+    /**
      * The base endpoint to make requests to.
      */
     readonly baseEndpoint = "https://paste.myst.rs/api/v2";

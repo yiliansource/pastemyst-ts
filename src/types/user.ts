@@ -33,3 +33,19 @@ export interface User {
      */
     contributor: boolean;
 }
+
+/**
+ * Represents an authorized user on the PasteMyst site.
+ *
+ * @see https://paste.myst.rs/api-docs/user
+ */
+export interface SelfUser extends User {
+    /**
+     * The list of paste IDs the user has starred.
+     */
+    stars: string[];
+    /**
+     * The lookup of service identifiers and user IDs the user used to create an account.
+     */
+    serviceIds: Record<string, string>;
+}

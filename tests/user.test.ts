@@ -20,6 +20,17 @@ describe("User", function () {
     });
 
     it("gets a user profile", async function () {
-        assert.strictEqual((await users.getUser(username))?.username, username);
+        const user = await users.getUser(username);
+        assert.strictEqual(user?.username, username);
+    });
+
+    it("gets authorized user profiles", async function () {
+        const user = await users.getCurrentUser();
+        assert.exists(user?.serviceIds.github);
+    });
+
+    it("gets authorized user pastes", async function () {
+        const pasteIds = await users.getOwnPasteIDs();
+        assert.isNotEmpty(pasteIds);
     });
 });
