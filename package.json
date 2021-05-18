@@ -8,7 +8,7 @@
     "scripts": {
         "build": "tsc",
         "lint": "npx eslint . --ext .ts",
-        "test": "mocha -r ts-node/register 'tests/**/*.ts'",
+        "test": "mocha --timeout 10000 -r ts-node/register 'tests/**/*.ts'",
         "prepare": "npm run build"
     },
     "files": [
