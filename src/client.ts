@@ -37,7 +37,7 @@ class Client {
     }
 
     /**
-     * Performs a GET request to the specified URL.
+     * Performs a POST request to the specified URL.
      *
      * @param url The URL to perform the request to. Note that this is relative to the base endpoint.
      * @returns The deserialized body or undefined on unsuccessful responses.
